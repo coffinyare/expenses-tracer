@@ -30,6 +30,15 @@ function handleClick(event) {
   });
 }
 
+function handleDelete(id) {
+  setExpenses((prevExpenses)=>{
+    return prevExpenses.filter((expense, index) =>{
+      return index !== id;
+    })
+  })
+
+}
+
 
 return(
   <>
@@ -59,6 +68,7 @@ return(
   <button className="button" onClick={handleClick} type="submit"> 
     add expense
     </button>
+    
 
 
 
@@ -71,6 +81,7 @@ return(
       <p> food: {expense.foodName}</p>
       <p> amount: {expense.amount}</p>
       <p> date: {expense.date}</p>
+      <button onClick={()=>handleDelete(index)}> delete</button>
     </div>
     )
   })
